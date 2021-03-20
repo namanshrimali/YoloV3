@@ -338,7 +338,7 @@ def train():
 
         # Save training results
         save = (not opt.nosave) or (final_epoch and not opt.evolve)
-#         if save:
+        #if save:
         with open(results_file, 'r') as f:
             # Create checkpoint
             chkpt = {'epoch': epoch,
@@ -347,8 +347,8 @@ def train():
                      'model': ema.ema.module.state_dict() if hasattr(model, 'module') else ema.ema.state_dict(),
                      'optimizer': None if final_epoch else optimizer.state_dict()}
 
-        # Save last checkpoint
-        torch.save(chkpt, '/content/drive/MyDrive/construction_yolo/best.pt')
+            # Save last checkpoint
+            torch.save(chkpt, '/content/drive/MyDrive/construction_yolo/best.pt')
 
             # Save best checkpoint
             if (best_fitness == fi) and not final_epoch:
